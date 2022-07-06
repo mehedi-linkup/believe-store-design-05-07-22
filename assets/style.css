@@ -55,8 +55,37 @@ ul {
 }
 
 .section-padding {
-    padding: 45px 0 45px 0;
+    padding-top: 45px;
+    padding-bottom: 45px;
 }
+
+h2.section-title {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+h2.section-title.text-white::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 120px;
+    height: 2px;
+    background: #fff;
+    bottom: -3px;
+    left: calc(50% - 60px);
+}
+
+h2.section-title::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 120px;
+    height: 2px;
+    background: #000;
+    bottom: -3px;
+    left: calc(50% - 60px);
+}
+
 
 .custom-card {
     background-color: #fff;
@@ -77,8 +106,18 @@ ul {
     color: rgba(255, 255, 255, 0.8);
 }
 .navbar-nav .nav-link.active, .navbar-nav .show>.nav-link {
-    color: #fff;
+    color: #f24c34;
 }
+
+.navbar-toggler-icon {
+    background-image: none;
+}
+.navbar-toggler-icon svg {
+    color: #fff;
+    height: 26px;
+    width: 24px;
+}
+
 
 /* Bootstrap Carousel */
 .carousel-inner {
@@ -135,7 +174,7 @@ ul {
 /* ---Category-menu start--- */
 .category-menu {
     /* background-image: linear-gradient(90deg, #B48DF8, #B7F7F9); */
-    background-image: linear-gradient(90deg, #953127, #B7F7F9);
+    background-color:#f24c34e6;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -168,8 +207,14 @@ ul {
     background-color: #f5f5f5;
 }
 .text-box {
-    padding: 90px;
+    padding: 20px;
     background-color: #fff;
+}
+
+@media(min-width: 1200px) {
+    .text-box {
+        padding: 90px;
+    }
 }
 
 
@@ -239,44 +284,49 @@ ul {
 
 
 /* Gallery Start */
-.gallery {
-    display: grid;
-    grid: auto-flow dense 100px 200px / repeat(8, 1fr);
-    gap: 1rem;
-    margin: 0;
-    padding: 0;
-}
-  
-.gallery li {
-list-style-type: none;
-padding: 5px;
-background-color: #fff;
-border-radius: 5px;
-box-shadow:
-    0.3px 0.5px 0.7px hsl(0deg 0% 0% / 0.36),
-    0.8px 1.6px 2px -0.8px hsl(0deg 0% 0% / 0.36),
-    2.1px 4.1px 5.2px -1.7px hsl(0deg 0% 0% / 0.36),
-    5px 10px 12.6px -2.5px hsl(0deg 0% 0% / 0.36);    
+
+.gallery img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: inherit;
 }
 
-.gallery li:nth-child(2),
-.gallery li:nth-child(4),
-.gallery li:nth-child(6) {
-grid-column: span 2;
-grid-row: span 2;
-}
-
-img {
-display: block;
-width: 100%;
-height: 100%;
-object-fit: cover;
-border-radius: inherit;
+@media (min-width: 768px) {
+    .gallery {
+        display: grid;
+        grid: auto-flow dense 100px 200px / repeat(8, 1fr);
+        gap: 1rem;
+        margin: 0;
+        padding: 0;
+    }
+    .gallery li {
+    list-style-type: none;
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow:
+        0.3px 0.5px 0.7px hsl(0deg 0% 0% / 0.36),
+        0.8px 1.6px 2px -0.8px hsl(0deg 0% 0% / 0.36),
+        2.1px 4.1px 5.2px -1.7px hsl(0deg 0% 0% / 0.36),
+        5px 10px 12.6px -2.5px hsl(0deg 0% 0% / 0.36);    
+    }
+    
+    .gallery li:nth-child(2),
+    .gallery li:nth-child(4),
+    .gallery li:nth-child(6) {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+    .gallery img {
+        height: 100%;
+    }
 }
 
 /* Video Gallery */
 .video-gallery {
-    background-image: linear-gradient(90deg, #096264, #fff);
+    background-color: #f3f3f3;
 }
 
 /* News-Event */
@@ -318,6 +368,10 @@ border-radius: inherit;
 
 .news-event .text-box p {
     font-size: 14px;
+}
+
+.news-event .cover-img {
+    object-fit: cover;
 }
 
 /* Footer Start */
@@ -394,10 +448,34 @@ border-radius: inherit;
 .site-footer .footer-end p {
     margin-bottom: 0;
 }
-.site-footer .footer-end .developed {
+.footer-end .developed {
     display: flex;
     justify-content: end;
 }
 .site-footer .footer-end .developed a {
     color: #ebf2ff
 }
+
+@media(max-width: 767px) {
+    .footer-end .copyright p {
+        text-align: center;
+    }
+   .footer-end .developed {
+        justify-content: center;
+    }
+}
+@media(max-width: 576px) {
+    .footer-end .developed p {
+        display: none;
+    }
+    .footer-end .copyright p {
+        font-size: 13px;
+        text-align: center;
+    }
+}
+
+/* Third Party app css */
+.viewbox-container {
+    z-index: 1031;
+}
+
